@@ -1,7 +1,18 @@
 C $Header$
-C
+C $Name$
+
+#ifndef EXF_OPTIONS_H
+#define EXF_OPTIONS_H
+#include "PACKAGES_CONFIG.h"
+#ifdef ALLOW_EXF
+
 #include "CPP_OPTIONS.h"
-C 
+
+C Despite the comments below, this package is currently configured by
+C ECCO_CPPOPTIONS.h and so you should not customize this file.
+#define ALLOW_ECCO
+#include "ECCO_CPPOPTIONS.h"
+
 C CPP flags controlling which code is included in the files that
 C will be compiled.
 C
@@ -130,3 +141,6 @@ c         |     |     |     |     | Compute open-water ustress, vstress,
 c         |     |     |     |     | hflux, swflux, and evap.
 c
 c   ====================================================================
+
+#endif /* ALLOW_EXF */
+#endif /* EXF_OPTIONS_H */
