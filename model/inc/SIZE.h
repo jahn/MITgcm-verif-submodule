@@ -7,7 +7,7 @@ C     | The design here support a three-dimensional model grid   |
 C     | with indices I,J and K. The three-dimensional domain     |
 C     | is comprised of nPx*nSx blocks of size sNx along one axis|
 C     | nPy*nSy blocks of size sNy along another axis and one    |
-C     | block of size Nr along the final axis.                   |
+C     | block of size Nz along the final axis.                   |
 C     | Blocks have overlap regions of size OLx and OLy along the|
 C     | dimensions that are subdivided.                          |
 C     \==========================================================/
@@ -35,8 +35,8 @@ C     Nr  - No. points in R for full process domain.
       INTEGER Ny
       INTEGER Nr
       PARAMETER (
-     &           sNx =  90,
-     &           sNy =  40,
+     &           sNx =  60,
+     &           sNy =  60,
      &           OLx =   3,
      &           OLy =   3,
      &           nSx =   1,
@@ -45,22 +45,21 @@ C     Nr  - No. points in R for full process domain.
      &           nPy =   1,
      &           Nx  = sNx*nSx*nPx,
      &           Ny  = sNy*nSy*nPy,
-     &           Nr  =  20)
+     &           Nr  =   1)
 
 C     l - Runtime global problem size in X
 C     m - Runtime global problem size in Y
-C     n - Runtime global problem size in R
+C     n - Runtime global problem size in Z
       COMMON /RUNSIZ/ l, m, n
       INTEGER l
       INTEGER m
       INTEGER n
 
-C     MAX_OLX  - Set to the maximum overlap region size of any array 
-C     MAX_OLY    that will be exchanged. Controls the sizing of exch 
+C     MAX_OLX  - Set to the maximum overlap region size of any array
+C     MAX_OLY    that will be exchanged. Controls the sizing of exch
 C                routine buufers.
       INTEGER MAX_OLX
       INTEGER MAX_OLY
       PARAMETER ( MAX_OLX = OLx,
      &            MAX_OLY = OLy )
-
 
