@@ -1,0 +1,3 @@
+[submodule "verification"]
+	path = verification
+	url = https://github.com/altMITgcm/verification.git
